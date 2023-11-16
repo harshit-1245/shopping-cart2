@@ -42,7 +42,7 @@ const Product = () => {
         <p className='product-description'>{product.description}</p>
         <p><b>&#8377;{product.price}</b></p>
         <div className="product-actions">
-          <button className="buy-now-button" onClick={()=>navigate("/singleProduct")}>Buy Now</button>
+          <button className="buy-now-button" onClick={()=>navigate(`/singleProduct${product.id}`)}>Buy Now</button>
           <button className="add-to-cart-button">Add to Cart</button>
         </div>
       </div>
