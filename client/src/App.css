@@ -1,0 +1,435 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.shopTitle {
+  margin-top: 100px;
+  text-align: center;
+  font-size: 40px;
+}
+.products {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+}
+.links a{
+  cursor: pointer;
+}
+.product {
+  border-radius: 15px;
+  width: 300px;
+  height: 350px;
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product img {
+  width: 400px;
+}
+
+.product .description {
+  text-align: center;
+}
+
+.product:hover {
+  transition: 0.3s ease-in;
+  cursor: pointer;
+}
+
+.addToCartBttn {
+  background-color: transparent;
+  border: 2px solid rgb(19, 19, 19);
+  min-width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+}
+
+.addToCartBttn:hover {
+  background-color: rgb(19, 19, 19);
+  color: white;
+  cursor: pointer;
+}
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartItem {
+  width: 700px;
+  height: 250px;
+  display: flex;
+
+  align-items: center;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  margin: 30px;
+}
+
+.cartItem img {
+  width: 200px;
+}
+
+.cartItem .description {
+  width: 100%;
+  font-size: 30px;
+}
+
+.countHandler input {
+  width: 40px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.checkout button {
+  width: 150px;
+  height: 50px;
+  background-color: rgb(19, 19, 19);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+}
+.navbar {
+  width: 100%;
+  height: 80px;
+  background-color: rgb(19, 19, 19);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.links {
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.links a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+  font-size: 25px;
+}
+/* Shop.css */
+
+.shop-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.category-bar {
+  width: 100%;
+  background-color: #f0f0f0; /* Example background color */
+  padding: 10px;
+  border-bottom: 1px solid #ccc; /* Example border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example box shadow */
+}
+
+.product-section {
+  width: 100%;
+  margin-top: 20px;
+  /* Add styling for the product section here */
+}
+/* Category.css */
+
+.all-categories {
+  width: 100%;
+  display: flex;
+  
+}
+.all-categories {
+  position: relative;
+}
+
+
+.category-list {
+  list-style: none;
+  padding: 0;
+}
+
+.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.subcategories {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.dropdown.active .subcategories {
+  display: block;
+}
+/* Product.css */
+
+.product-container {
+  text-align: center;
+}
+
+.category-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.main-category {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.subcategories {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: none;
+}
+
+.main-category:hover .subcategories {
+  display: block;
+}
+
+.categories-section {
+  max-width: 600px; /* Example maximum width */
+  margin: 0 auto; /* Center the categories */
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+}
+
+.category-list li {
+  margin-bottom: 8px;
+  background-color: #f0f0f0; /* Example background color */
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.category-list li:hover {
+  background-color: #dcdcdc; /* Example hover color */
+}
+/* Product.css */
+.products-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow products to wrap to the next line */
+  gap: 20px; /* Adjust the gap between products */
+  justify-content: space-between; /* Space between products */
+}
+.product {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: calc(33.33% - 20px); /* Set width for three products in a row */
+  margin-bottom: 20px; /* Adjust margin-bottom for spacing between products */
+  /* Other styles for product layout */
+}
+.img-container {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+  /* Additional styles for the image container */
+}
+
+.product h3 {
+  margin-bottom: 15px;
+}
+
+.product-actions {
+  display: flex;
+  gap: 10px;
+  /* Additional styles for product actions */
+}
+.product-description {
+  max-height: 80px; /* Adjust the maximum height */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Number of lines to show before truncating */
+  -webkit-box-orient: vertical;
+  margin-bottom: 10px; /* Adjust margin bottom if needed */
+}
+
+.buy-now-button,
+.buy-now-button,
+.add-to-cart-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Additional styles for buttons */
+}
+
+.buy-now-button {
+  background-color: #4caf50; /* Example Buy Now button color */
+  color: white;
+}
+
+.add-to-cart-button {
+  background-color: #2196f3; /* Example Add to Cart button color */
+  color: white;
+}
+.img-container {
+  width: 100%; /* Adjust as needed */
+  height: 200px; /* Adjust the height of the container */
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.buy-now-button:hover,
+.add-to-cart-button:hover {
+  filter: brightness(0.9);
+}
+@media (max-width: 768px) {
+  .product {
+    width: calc(50% - 20px); /* Set width for two products in a row on smaller screens */
+  }
+  
+  /* Adjust as needed for smaller screens */
+}
+/* Product.css */
+
+.product-container {
+  text-align: center;
+}
+
+.category-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #333;
+  color: #fff;
+}
+/* Your CSS file for styling */
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensures it covers the full height of its parent */
+}
+
+/* Optional styling for the Skeleton component */
+.skeleton-wrapper {
+  width: 80%; /* Adjust the width as needed */
+  max-width: 400px; /* Limit maximum width for larger screens */
+  padding: 20px;
+  background-color: #f0f0f0; /* Background color for the loading container */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adding a subtle box shadow */
+}
+.img-content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-link{
+  cursor: pointer;
+}
+.cart-link{
+  cursor: pointer;
+}
