@@ -6,7 +6,7 @@ import Spinner from "../images/spinner.gif"
 
 const Product = () => {
   const navigate=useNavigate();
-  const { loading,data,filter,setFilter } = useContext(Context);
+  const { loading,data,filter,setFilter,cart,addToCart } = useContext(Context);
 
   const Loading = () => {
     return (
@@ -43,7 +43,7 @@ const Product = () => {
         <p><b>&#8377;{product.price}</b></p>
         <div className="product-actions">
           <button className="buy-now-button" onClick={()=>navigate(`/singleProduct${product.id}`)}>Buy Now</button>
-          <button className="add-to-cart-button">Add to Cart</button>
+          <button className="add-to-cart-button" onClick={()=>addToCart(product.id)}>Add to Cart</button>
         </div>
       </div>
       ))}

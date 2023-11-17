@@ -5,6 +5,7 @@ const ShopContextProvider = ({children}) => {
   const [data,setData]=useState([])
   const [filter,setFilter]=useState(data);
   const [loading,setLoading]=useState(false)
+  const [cart,setCart]=useState([]);
   let componentMounted=true;
    useEffect(()=>{
     const getProducts=async()=>{
@@ -23,6 +24,19 @@ const ShopContextProvider = ({children}) => {
     }
     getProducts();
    },[])
+
+   const addToCart=(productId)=>{
+      const productToAdd=data.find((product)=>product.id===productId);
+      if(productToAdd){
+        setCart([...cart,productToAdd]);
+      }
+   }
+   const removeCart=(productId)=>{
+    const updateCart=data.filter((product)=>product.id===productId);
+    setCart(updateCart);
+   }
+
+console.log(cart)
  
 
   return (
@@ -34,6 +48,9 @@ const ShopContextProvider = ({children}) => {
       setData,
       loading,
       setLoading,
+      cart,
+      addToCart,
+      removeCart,
 
     }}>
       {children}
