@@ -11,3 +11,99 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* Cart container */
+
+/* Cart container */
+.img-container {
+  width: 200px;
+  height: 100%;
+  margin-right: 20px;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.container{
+  width: 100%;
+  height: 100vh;
+}
+.row{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Overall container */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Image container */
+.image-container {
+  margin-right: 20px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Right side content */
+.box {
+  border: 1px solid #ccc; /* Border around the box */
+  border-radius: 8px;
+  max-width: 600px; /* Adjust width as needed */
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.image-container {
+  margin-right: 20px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styles for each element inside .details */
+.title, .div, .rating, .desc {
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1565c0;
+}
+
