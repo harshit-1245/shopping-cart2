@@ -1,109 +1,126 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-/* Cart container */
 
-/* Cart container */
-.img-container {
-  width: 200px;
-  height: 100%;
-  margin-right: 20px;
-}
 
-.img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-.container{
-  width: 100%;
-  height: 100vh;
-}
-.row{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-/* Overall container */
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  font-family: 'Arial', sans-serif;
-}
-
-/* Image container */
-.image-container {
-  margin-right: 20px;
-}
-
-.image-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
 
 /* Right side content */
-.box {
-  border: 1px solid #ccc; /* Border around the box */
-  border-radius: 8px;
-  max-width: 600px; /* Adjust width as needed */
-  display: flex;
-  align-items: center;
-  padding: 20px;
-}
+/* Styling for single product layout */
 
-.image-container {
-  margin-right: 20px;
-}
-
-.image-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Styles for each element inside .details */
-.title, .div, .rating, .desc {
-  margin-bottom: 10px;
-}
-
-.buttons {
-  display: flex;
-  flex-direction: column;
-}
-
-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #1976d2;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #1565c0;
-}
-
+/* Main container */
+.single-product-main-content {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  /* Layout container */
+  .layout {
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  /* Single product page layout */
+  .single-product-page {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  /* Left section for product image */
+  .left {
+    flex: 0 0 40%;
+    margin-right: 20px;
+  }
+  
+  .left img {
+    width: 80%;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Right section for product details */
+  .right {
+    height: 80vh;
+    flex: 0 0 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Product name */
+  .name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Product price */
+  .price {
+    font-size: 20px;
+    color: #8e2de2;
+    margin-bottom: 15px;
+  }
+  
+  /* Product description */
+  .desc {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Cart buttons section */
+  .cart-buttons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Add to cart button */
+  .add-to-cart-button,
+  .go-to-cart-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #8e2de2;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-to-cart-button:hover,
+  .go-to-cart-button:hover {
+    background-color: #6516aa;
+  }
+  
+  /* Divider */
+  .divider {
+    height: 1px;
+    width: 100%;
+    background-color: #ccc;
+    margin-bottom: 20px;
+  }
+  
+  /* Information item */
+  .info-item {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .text-bold {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  /* Share icons */
+  .social-icons {
+    display: flex;
+    align-items: center;
+    /* Adjust icon styles based on your specific icon setup */
+  }
+  

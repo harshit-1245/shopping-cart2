@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import {useNavigate} from "react-router-dom";
+
 import Spinner from "../images/spinner.gif"
 import {useParams} from "react-router-dom";
+import {Context} from "../context/context"
 
 
 const SingleProduct = () => {
+  const navigate=useNavigate();
+  const {addToCart} = useContext(Context)
 
 const {id}=useParams();
 const [product,setProduct]=useState([]);
@@ -31,19 +36,36 @@ const LoadingProduct=()=>{
 const ShowProducts=()=>{
   return(
    <>
-   <div className="box">
-   <div className='image-container'>
-    <img src={product.image} alt="" height="400px" width="400px" />
-   </div>
-    <div className="title">Product Category</div>
-    <div className="div">Product title</div>
-    <div className="rating">Rating</div>
-
-    <div className="div">Price</div>
-    <div className="desc">desc</div>
-    <button>Add To Cart</button>
-    <button>Go to cart</button>
+   <div className="single-product-main-content">
+    <div className="layout">
+      <div className="single-product-page">
+        <div className="left">
+          <img src={product.image} alt="" />
+        </div>
+        <div className="right">
+          <span className='name'>{product.title}</span>
+          <span className='desc'><b>Description:</b>{product.description}</span>
+          <span className='price'>${product.price}</span>
+          
+          <div className="cart-buttons">
+           
+            <button className='add-to-cart-button' onClick={()=>addToCart(product.id)}>
+               ADD TO CART
+            </button>
+            <button className='go-to-cart-button' onClick={()=>navigate('/cart')}>
+              Go To Cart
+            </button>
+          </div>
+          <span className="divider" />
+          <div className="info-item">
+            <span className="text-bold">Category:{product.category}</span>
+            
+           
+          </div>
+        </div>
+      </div>
     </div>
+   </div>
    </>
   )
 }
