@@ -44,7 +44,21 @@ const ShopContextProvider = ({ children }) => {
   const calculateSubtotal = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
-  console.log(cart)
+ 
+  //product quantity using event 
+  const handleProductQuantity=(type,product)=>{
+    let items=[...cart];
+    let index=items.findIndex((p)=>p.id===product.id);
+    if(type === 'inc'){
+      items[index].quantity +=1;
+    }else if(type === 'dec'){
+      if(items[index].quantity ===1) return;
+      items[index].quantity -=1;
+    }else{
+      items[index].quantity -=1;
+    }
+    setCart(items);
+  }
 
   return (
     <Context.Provider
@@ -60,6 +74,7 @@ const ShopContextProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         calculateSubtotal,
+        handleProductQuantity,
       }}
     >
       {children}
