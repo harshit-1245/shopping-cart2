@@ -4,7 +4,7 @@ import { Context } from '../context/context';
 import {useNavigate} from 'react-router-dom';
 
 const Cart = () => {
-  const { cart, removeFromCart, addToCart,calculateSubtotal,handleProductQuantity} = useContext(Context);
+  const { cart, removeFromCart,calculateSubtotal,handleProductQuantity} = useContext(Context);
 
  
  
