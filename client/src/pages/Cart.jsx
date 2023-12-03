@@ -7,19 +7,19 @@ import { useNavigate } from 'react-router-dom';
 const Cart = () => {
   const { cart, removeFromCart, calculateSubtotal, handleProductQuantity } = useContext(Context);
   const navigate = useNavigate();
-  const [orderId,setOrderId]=useState('');
-  const [razorpayLoaded,setRazorpayLoaded]=useState(false);
+  const [orderId,setOrderId]=useState(''); //state to store the orderID
+  const [razorpayLoaded,setRazorpayLoaded]=useState(false); // State to track Razorpay script loading status
 
 useEffect(()=>{
   const loadRazorpay=async()=>{
     const script=document.createElement('script');
-    script.src= 'http://checkout.razorpay.com/v1/checkout.js';
-    script.onload=()=>setRazorpayLoaded(script);
+    script.src= 'http://checkout.razorpay.com/v1/checkout.js'; //setting the source for the razorpay script
+    script.onload=()=>setRazorpayLoaded(script); //setting razorpay loaded status on script load
   };
   loadRazorpay();
 },[])
 
-
+//function to generate a random receipt ID
   const generateReceiptId=()=>{
     const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result='';
@@ -31,7 +31,7 @@ useEffect(()=>{
     }
     return result;
   }
-  const receiptId=generateReceiptId();
+  const receiptId=generateReceiptId(); // generating a receipt id
 
   // Payment integration
   const createRazorpayOrder=async()=>{
@@ -42,7 +42,7 @@ useEffect(()=>{
         reciept:receiptId,
       });
       const {order}=response.data;
-      setOrderId(order.id);
+      setOrderId(order.id); //setting the order id received from the backend
 
       const options = {
         key:'rzp_test_44pVLYU6Z50n9V',
