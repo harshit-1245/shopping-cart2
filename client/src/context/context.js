@@ -1,13 +1,17 @@
 // ShopContextProvider.js
 import React, { createContext, useEffect, useState } from 'react';
+import LoadingBar from "react-top-loading-bar"
 
 export const Context = createContext();
 
 const ShopContextProvider = ({ children }) => {
+  const [progress,setProgress]=useState(100)
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState([]);
   const [loading, setLoading] = useState(false);
   const [cart, setCart] = useState([]);
+
+
 
   useEffect(() => {
     const getProducts = async () => {
@@ -20,6 +24,10 @@ const ShopContextProvider = ({ children }) => {
     };
     getProducts();
   }, []);
+
+  const calculateCartCount=()=>{
+    return cart.reduce((totalCount,item)=>totalCount + item.quantity,0);
+  }
 
   const addToCart = (productId) => {
     const productToAdd = data.find((product) => product.id === productId);
@@ -60,6 +68,17 @@ const ShopContextProvider = ({ children }) => {
     setCart(items);
   }
 
+  //loading bar logic
+  const LoadingBarWithContext=(
+    <LoadingBar
+    color='#f11946'
+    progress={progress}
+    onLoaderFinished={()=>setProgress(0)}
+    />
+  )
+  //2 min delay
+ 
+
   return (
     <Context.Provider
       value={{
@@ -75,6 +94,10 @@ const ShopContextProvider = ({ children }) => {
         removeFromCart,
         calculateSubtotal,
         handleProductQuantity,
+        calculateCartCount,
+        progress,
+        setProgress,
+       LoadingBar: LoadingBarWithContext,
       }}
     >
       {children}

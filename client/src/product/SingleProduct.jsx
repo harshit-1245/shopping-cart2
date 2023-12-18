@@ -23,7 +23,7 @@ useEffect(()=>{
    }
    getProduct(); 
 },[])
-console.log(product)
+
 const LoadingProduct=()=>{
   return (
     <>

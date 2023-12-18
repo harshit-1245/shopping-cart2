@@ -55,9 +55,9 @@ useEffect(()=>{
           console.log(response)
         },
         prefill: {
-          name: 'Customer Name',
-          email: 'customer@example.com',
-          contact: '9999999999',
+          name: 'Harshit Singh',
+          email: 'harshitsingh50621@gmail.com',
+          contact: '9670236718',
         },
         theme: {
           color: '#F37254',
@@ -74,8 +74,17 @@ useEffect(()=>{
   
 
   return (
+  <>
+  
     <div className="cart">
-      <div>
+      {cart.length ===0 ?(
+        <div>
+          <h1>Your Cart is Empty</h1>
+        </div>
+      ):
+      (
+        <>
+           <div>
         <h1>Your Cart Items</h1>
       </div>
       <div className="cart-items">
@@ -106,7 +115,11 @@ useEffect(()=>{
         <button onClick={createRazorpayOrder}>Checkout</button>
         {orderId && <p>OrderID:{orderId}</p>}
       </div>
+        </>
+      )}
+     
     </div>
+    </>
   );
 };
 

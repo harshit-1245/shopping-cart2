@@ -1,19 +1,24 @@
-import React, { useContext } from 'react';
-import {useNavigate} from "react-router-dom";
+import React, { useContext, useState } from 'react';
+import {useNavigate,useParams} from "react-router-dom";
 import { Context } from '../context/context';
 import Spinner from "../images/spinner.gif"
+
  // Import your CSS file for styling
 
 const Product = () => {
+
+
   const navigate=useNavigate();
-  const { loading,data,filter,setFilter,cart,addToCart } = useContext(Context);
+  
+  const { loading,data,filter,setFilter,cart,addToCart,LoadingBar } = useContext(Context);
 
   const Loading = () => {
     return (
     <>
     <div className="img-content">
-     <img src={Spinner} alt="" />
-     </div>
+      
+            {LoadingBar}
+            </div>
       </>
     )
   };
