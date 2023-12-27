@@ -7,6 +7,7 @@ import ShopContextProvider from './context/context';
 import SingleProduct from './product/SingleProduct';
 import Success from './pages/success';
 import Cancel from './pages/cancel';
+import Home from './Home/Home';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
     <ShopContextProvider>
     <Navbar/>
     <Routes>
-      <Route path='/' element={<Shop/>}/>
+    <Route path='/' element={<Home/>}/>
+      <Route path='/shop' element={<Shop/>}/>
       <Route path='/cart' element={<Cart/>}/>
       <Route path="/singleProduct/:id" element={<SingleProduct/>}/>
       <Route path='/success' element={<Success/>}/>

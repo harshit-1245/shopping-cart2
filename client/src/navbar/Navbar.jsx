@@ -17,6 +17,7 @@ const [showSearch,setShowSearch]=useState(false);
     <>
     <div className='navbar'>
         <div className="links">
+          
             <Link className='nav-link' to='/'>Shop</Link>
             <Link className='cart-link' to="/cart">
             <span className='cart-icon'>
@@ -33,6 +34,7 @@ const [showSearch,setShowSearch]=useState(false);
             
 
         </div>
+        
       
     </div>
    { showSearch && <Search setShowSearch={setShowSearch}/>}

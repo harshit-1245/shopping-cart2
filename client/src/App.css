@@ -460,3 +460,11 @@
   border-radius: 50%;
 }
 
+.logo{
+  width: 100%;
+  color: white;
+  font-weight: 1000;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

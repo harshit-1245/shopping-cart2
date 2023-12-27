@@ -23,7 +23,7 @@ const ShopContextProvider = ({ children }) => {
       setLoading(false);
     };
     getProducts();
-  }, []);
+  }, []); 
 
   const calculateCartCount=()=>{
     return cart.reduce((totalCount,item)=>totalCount + item.quantity,0);
