@@ -1,0 +1,94 @@
+/* Product.css */
+.product {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 60px;
+    box-sizing: border-box;
+    width: calc(33.33% - 30px); /* Set width for three products in a row */
+    /* margin: 10px 5px; */
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    position: relative;
+  }
+.product h3 {
+    margin-bottom: 15px;
+  }
+  
+  .product-actions {
+    display: flex;
+    gap: 10px;
+    /* Additional styles for product actions */
+  }
+  
+  .product-description {
+    max-height: 80px; /* Adjust the maximum height */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Number of lines to show before truncating */
+    -webkit-box-orient: vertical;
+    margin-bottom: 10px; /* Adjust margin bottom if needed */
+  }
+  
+  .buy-now-button,
+  .add-to-cart-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* Additional styles for buttons */
+  }
+  
+  .buy-now-button {
+    background-color: #4caf50; /* Example Buy Now button color */
+    color: white;
+  }
+  
+  .add-to-cart-button {
+    background-color: #2196f3; /* Example Add to Cart button color */
+    color: white;
+  }
+  
+  .img-container {
+    width: 100%; /* Adjust as needed */
+    height: 200px; /* Adjust the height of the container */
+    overflow: hidden;
+  }
+  
+  .product img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .buy-now-button:hover,
+  .add-to-cart-button:hover {
+    filter: brightness(0.9);
+  }
+  
+  @media (max-width: 768px) {
+    .product {
+      width: calc(50% - 20px); 
+      margin: 10px; /* Set width for two products in a row on smaller screens */
+      /* Adjust as needed for smaller screens */
+    }
+  }
+  
+  /* Additional styles for the product container */
+  .product-container {
+    text-align: center;
+  }
+  .img-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .product img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  

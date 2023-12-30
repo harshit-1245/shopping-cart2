@@ -294,86 +294,7 @@
   gap: 20px; /* Adjust the gap between products */
   justify-content: space-between; /* Space between products */
 }
-.product {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  width: calc(33.33% - 20px); /* Set width for three products in a row */
-  margin-bottom: 20px; /* Adjust margin-bottom for spacing between products */
-  /* Other styles for product layout */
-}
-.img-container {
-  width: 200px;
-  height: 200px;
-  margin-bottom: 10px;
-  /* Additional styles for the image container */
-}
 
-.product h3 {
-  margin-bottom: 15px;
-}
-
-.product-actions {
-  display: flex;
-  gap: 10px;
-  /* Additional styles for product actions */
-}
-.product-description {
-  max-height: 80px; /* Adjust the maximum height */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 4; /* Number of lines to show before truncating */
-  -webkit-box-orient: vertical;
-  margin-bottom: 10px; /* Adjust margin bottom if needed */
-}
-
-.buy-now-button,
-.buy-now-button,
-.add-to-cart-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  /* Additional styles for buttons */
-}
-
-.buy-now-button {
-  background-color: #4caf50; /* Example Buy Now button color */
-  color: white;
-}
-
-.add-to-cart-button {
-  background-color: #2196f3; /* Example Add to Cart button color */
-  color: white;
-}
-.img-container {
-  width: 100%; /* Adjust as needed */
-  height: 200px; /* Adjust the height of the container */
-  overflow: hidden;
-}
-
-.product-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-.buy-now-button:hover,
-.add-to-cart-button:hover {
-  filter: brightness(0.9);
-}
-@media (max-width: 768px) {
-  .product {
-    width: calc(50% - 20px); /* Set width for two products in a row on smaller screens */
-  }
-  
-  /* Adjust as needed for smaller screens */
-}
-/* Product.css */
-
-.product-container {
-  text-align: center;
-}
 
 .category-header {
   font-size: 24px;
@@ -468,3 +389,4 @@
   flex-direction: row;
   justify-content: flex-end;
 }
+

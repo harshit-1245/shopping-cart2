@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import {useNavigate,useParams} from "react-router-dom";
 import { Context } from '../context/context';
+import "./Product.css"
 import Spinner from "../images/spinner.gif"
 
  // Import your CSS file for styling
@@ -43,7 +44,7 @@ const Product = () => {
         <div className="img-container">
           <img src={product.image} alt={product.title} />
         </div>
-        <h3>{product.title}</h3>
+        <h3><b>{product.title}</b></h3>
         <p className='product-description'>{product.description}</p>
         <p><b>&#8377;{product.price}</b></p>
         <div className="product-actions">
