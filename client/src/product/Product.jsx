@@ -36,14 +36,14 @@ const [page,setPage]=useState(1);
   const ShowProducts = () => {
     return (
       <>
-      {/* <div className="buttons">
+      <div className="buttons">
         <button onClick={()=>setFilter(data)}>All</button>
         <button onClick={()=>filterProduct("men's clothing")}>Men's clothing</button>
         <button onClick={()=>filterProduct("women's clothing")}>Women's Clothing</button>
         <button onClick={()=>filterProduct("jewelery")}>Jwelery</button>
         <button onClick={()=>filterProduct("electronics")}>Electronic</button>
        
-      </div> */}
+      </div>
       {filter.length > 0 && (
        <div className="products_container">
        {filter.slice(page, page * 10).map((item) => (

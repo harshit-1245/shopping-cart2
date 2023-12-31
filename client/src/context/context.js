@@ -14,6 +14,7 @@ const ShopContextProvider = ({ children }) => {
   const [filter, setFilter] = useState([]);
   const [loading, setLoading] = useState(false);
   const [cart, setCart] = useState([]);
+  const [category,setCategory]=useState([])
  
 
 
@@ -29,6 +30,14 @@ const ShopContextProvider = ({ children }) => {
     };
     getProducts();
   }, []); 
+
+  useEffect(()=>{
+      const fetchCategory=async()=>{
+   const response=await axios.get("https://dummyjson.com/products/categories")
+   setCategory(response.data)
+      }
+      fetchCategory()
+  },[])
 
  
 
