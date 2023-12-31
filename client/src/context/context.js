@@ -114,6 +114,7 @@ const ShopContextProvider = ({ children }) => {
         calculateCartCount,
         progress,
         setProgress,
+        category,
       
        LoadingBar: LoadingBarWithContext,
       }}
