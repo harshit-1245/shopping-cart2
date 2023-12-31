@@ -1,29 +1,37 @@
 // ShopContextProvider.js
 import React, { createContext, useEffect, useState } from 'react';
 import LoadingBar from "react-top-loading-bar"
+import {useParams} from "react-router-dom"
+
+import axios from "axios"
 
 export const Context = createContext();
 
 const ShopContextProvider = ({ children }) => {
+
   const [progress,setProgress]=useState(100)
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState([]);
   const [loading, setLoading] = useState(false);
   const [cart, setCart] = useState([]);
+ 
 
 
 
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-      const response = await fetch('https://fakestoreapi.com/products');
-      const fetchedData = await response.json();
-      setData(fetchedData);
-      setFilter(fetchedData);
+      const response = await axios.get("https://dummyjson.com/products")
+      
+      setData(response.data.products);
+      setFilter(response.data.products);
       setLoading(false);
     };
     getProducts();
   }, []); 
+
+ 
+
 
   const calculateCartCount=()=>{
     return cart.reduce((totalCount,item)=>totalCount + item.quantity,0);
@@ -77,7 +85,7 @@ const ShopContextProvider = ({ children }) => {
     />
   )
   //2 min delay
- 
+
 
   return (
     <Context.Provider
@@ -97,6 +105,7 @@ const ShopContextProvider = ({ children }) => {
         calculateCartCount,
         progress,
         setProgress,
+      
        LoadingBar: LoadingBarWithContext,
       }}
     >

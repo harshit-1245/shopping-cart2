@@ -3,15 +3,20 @@ import {useNavigate,useParams} from "react-router-dom";
 import { Context } from '../context/context';
 import "./Product.css"
 import Spinner from "../images/spinner.gif"
+import { GrLinkNext, GrLinkPrevious } from "react-icons/gr";
 
  // Import your CSS file for styling
 
 const Product = () => {
-
+const [page,setPage]=useState(1);
 
   const navigate=useNavigate();
   
   const { loading,data,filter,setFilter,cart,addToCart,LoadingBar } = useContext(Context);
+
+  const handleBuyNow=(productId)=>{
+    navigate(`/singleProduct/${productId}`)
+  }
 
   const Loading = () => {
     return (
@@ -31,28 +36,38 @@ const Product = () => {
   const ShowProducts = () => {
     return (
       <>
-      <div className="buttons">
+      {/* <div className="buttons">
         <button onClick={()=>setFilter(data)}>All</button>
         <button onClick={()=>filterProduct("men's clothing")}>Men's clothing</button>
         <button onClick={()=>filterProduct("women's clothing")}>Women's Clothing</button>
         <button onClick={()=>filterProduct("jewelery")}>Jwelery</button>
         <button onClick={()=>filterProduct("electronics")}>Electronic</button>
        
+      </div> */}
+      {filter.length > 0 && (
+       <div className="products_container">
+       {filter.slice(page, page * 10).map((item) => (
+         <div className="products__single" key={item.id}>
+           <img src={item.thumbnail} alt={item.title} />
+           <span>{item.title}</span>
+           <div class="buttons-container">
+        <button onClick={() => addToCart(item.id)}>Add to Cart</button>
+        <button onClick={()=>handleBuyNow(item.id)}>Buy Now</button>
       </div>
-      {filter.map((product)=>(
-        <div className="product" key={product.id}>
-        <div className="img-container">
-          <img src={product.image} alt={product.title} />
+         </div>
+          ))}
         </div>
-        <h3><b>{product.title}</b></h3>
-        <p className='product-description'>{product.description}</p>
-        <p><b>&#8377;{product.price}</b></p>
-        <div className="product-actions">
-          <button className="buy-now-button" onClick={()=>navigate(`/singleProduct/${product.id}`)}>Buy Now</button>
-          <button className="add-to-cart-button" onClick={()=>addToCart(product.id)}>Add to Cart</button>
+      )}
+
+      {/* pagination */}
+      {filter.length > 0 && <div className='pagination'>
+        <span className='prev'><GrLinkPrevious/></span>
+        {[...Array(filter.length/3)].map((_,i)=>{
+          return <span key={i}>{i+1}</span>
+        })}
+        <span className='next'><GrLinkNext/></span>
         </div>
-      </div>
-      ))}
+        }
       </>
     );
   };

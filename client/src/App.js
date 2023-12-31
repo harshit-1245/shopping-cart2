@@ -8,6 +8,9 @@ import SingleProduct from './product/SingleProduct';
 import Success from './pages/success';
 import Cancel from './pages/cancel';
 import Home from './Home/Home';
+import Footer from './footer/Footer';
+import Newsletter from "./newslatter/Newsletter"
+
 
 function App() {
   return (
@@ -20,9 +23,11 @@ function App() {
       <Route path='/shop' element={<Shop/>}/>
       <Route path='/cart' element={<Cart/>}/>
       <Route path="/singleProduct/:id" element={<SingleProduct/>}/>
-      <Route path='/success' element={<Success/>}/>
-      <Route path='/cancel' element={<Cancel/>}/>
+     
     </Routes>
+    <Newsletter/>
+    <Footer/>
+
     </ShopContextProvider>
     </BrowserRouter>
     </>

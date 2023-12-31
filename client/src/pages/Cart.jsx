@@ -90,7 +90,7 @@ useEffect(()=>{
       <div className="cart-items">
         {cart.map((product) => (
           <div className="cartItem" key={product.id}>
-            <img src={product.image} alt={product.name} />
+            <img src={product.thumbnail} alt={product.name} />
             <div className="description">
               <p>
                 <b>{product.name}</b>

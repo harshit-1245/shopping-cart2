@@ -1,85 +1,47 @@
-import React, { useContext, useEffect, useState } from 'react'
-import {useNavigate} from "react-router-dom";
-
-import Spinner from "../images/spinner.gif"
-import {useParams} from "react-router-dom";
-import {Context} from "../context/context"
-
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Context } from '../context/context';
+import Spinner from '../images/spinner.gif';
 
 const SingleProduct = () => {
-  const navigate=useNavigate();
-  const {addToCart} = useContext(Context)
+  const { id } = useParams();
+  const { loading, data, addToCart } = useContext(Context);
+  const [product, setProduct] = useState(null);
 
-const {id}=useParams();
-const [product,setProduct]=useState([]);
-const [loading,setLoading]=useState(false);
+  useEffect(() => {
+    if (data && data.length > 0) {
+      const foundProduct = data.find((item) => item.id.toString() === id);
+      if (foundProduct) {
+        setProduct(foundProduct);
+      }
+    }
+  }, [data, id]);
 
-useEffect(()=>{
-   const getProduct=async()=>{
-    setLoading(true);
-    const response=await fetch(`https://fakestoreapi.com/products/${id}`)
-    setProduct(await response.json());
-    setLoading(false);
-   }
-   getProduct(); 
-},[])
-
-const LoadingProduct=()=>{
-  return (
-    <>
-    <div className="img-content">
-     <img src={Spinner} alt="" />
-     </div>
-      </>
-    )
-}
-const ShowProducts=()=>{
-  return(
-   <>
-   <div className="single-product-main-content">
-    <div className="layout">
-      <div className="single-product-page">
-        <div className="left">
-          <img src={product.image} alt="" />
-        </div>
-        <div className="right">
-          <span className='name'>{product.title}</span>
-          <span className='desc'><b>Description:</b>{product.description}</span>
-          <span className='price'>${product.price}</span>
-          
-          <div className="cart-buttons">
-           
-            <button className='add-to-cart-button' onClick={()=>addToCart(product.id)}>
-               ADD TO CART
-            </button>
-            <button className='go-to-cart-button' onClick={()=>navigate('/cart')}>
-              Go To Cart
-            </button>
-          </div>
-          <span className="divider" />
-          <div className="info-item">
-            <span className="text-bold">Category:{product.category}</span>
-            
-           
-          </div>
-        </div>
+  const LoadingProduct = () => {
+    return (
+      <div className="img-content">
+        <img src={Spinner} alt="" />
       </div>
+    );
+  };
+
+  const ShowProductDetails = () => {
+    return (
+      <div className="product-details">
+        <h2>{product.title}</h2>
+        <img src={product.thumbnail} alt={product.title} />
+        <p><b>{product.description}</b></p>
+        <p>Price: ${product.price}</p>
+        <button onClick={() => addToCart(product.id)}>Add to Cart</button>
+      </div>
+    );
+  };
+
+  return (
+    <div className="single-product-container">
+      {loading ? <LoadingProduct /> : product ? <ShowProductDetails /> : <p>Product not found</p>}
     </div>
-   </div>
-   </>
-  )
-}
+  );
+};
 
-
-
-  return (
-    <div className="container">
-       <div className="row">
-        {loading ? <LoadingProduct /> : <ShowProducts />}
-      </div>
-      </div>
-    
-  )
-}
-
-export default SingleProduct
+export default SingleProduct;
