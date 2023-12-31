@@ -8,11 +8,11 @@ import {useParams} from "react-router-dom"
 const Search = ({ setShowSearch }) => {
     const navigate=useNavigate();
     const {id}=useParams();
-    const { filter } = useContext(Context);
+    const {data } = useContext(Context);
     const [searchTerm, setSearchTerm] = useState('');
 
     // Filtered items based on search term
-    const filteredItems = filter.filter((item) =>
+    const filteredItems = data.filter((item) =>
         item.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
