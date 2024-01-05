@@ -97,7 +97,7 @@ useEffect(()=>{
               </p>
               <p>Price: ${product.price}</p>
               <div className="countHandler">
-                <button onClick={() => handleProductQuantity('dec', product)}>-</button>
+                <button className='decrease' onClick={() => handleProductQuantity('dec', product)}>-</button>
                 <input value={product.quantity} readOnly />
                 <button onClick={() => handleProductQuantity('inc', product)}>+</button>
                 <div className="checkout">

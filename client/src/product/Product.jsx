@@ -37,12 +37,20 @@ const [page,setPage]=useState(1);
   
 
   const ShowProducts = () => {
+    const productsPerPage = 10; // Number of products to display per page
+
+    const totalPages = Math.ceil(filter.length / productsPerPage);
+  
+    const startIndex = (page - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+  
+    const visibleProducts = filter.slice(startIndex, endIndex);
     return (
       <>
      
      {filter.length > 0 && (
         <div className="products_container">
-          {filter.slice(page, page * 10).map((item) => (
+       {visibleProducts.map((item)=>(
             <div className="products__single" key={item.id}>
               <img src={item.thumbnail} alt={item.title} />
               <span>{item.title}</span>
@@ -59,12 +67,12 @@ const [page,setPage]=useState(1);
       {filter.length > 0 && (
         <div className="pagination">
           <span
-            className={page > filter.length / 3 ? "products__disabled" : ""}
+            className={page === 1 ? "products__disabled" : ""}
             onClick={() => setPage(page - 1)}
           >
             <GrLinkPrevious />
           </span>
-          {Array.from({ length: Math.ceil(filter.length / 3) }).map((_, i) => (
+          {Array.from({ length: totalPages }).map((_, i) => (
             <span
               className={page === i + 1 ? "page__selected" : ""}
               key={i}
@@ -74,7 +82,7 @@ const [page,setPage]=useState(1);
             </span>
           ))}
           <span
-            className={page < filter.length / 3 ? "products__disabled" : ""}
+            className={page === totalPages ? "products__disabled" : ""}
             onClick={() => setPage(page + 1)}
           >
             <GrLinkNext />
